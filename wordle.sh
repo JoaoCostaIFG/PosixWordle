@@ -11,7 +11,7 @@ fi
 
 max_wcnt="$(grep -c '^\w\w\w\w\w$' "$dictfile")"
 soli="$(shuf -i 0-"$max_wcnt" -n 1)"
-sol="$(grep -m "$soli" '^\w\w\w\w\w$' dict | tail -1 | tr '[:lower:]' '[:upper:]')"
+sol="$(grep -m "$soli" '^\w\w\w\w\w$' "$dictfile" | tail -1 | tr '[:lower:]' '[:upper:]')"
 
 max_guess=6
 curr_guess=1
