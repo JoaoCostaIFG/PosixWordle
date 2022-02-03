@@ -7,5 +7,8 @@ of the game.
 
 ## Dictionary
 
-Got it from
+I got the one in the repo from
 [here](https://github.com/charlesreid1/five-letter-words/blob/master/sgb-words.txt).
+
+You can use any dictionary you want (dict file). You can include any words of
+any size in this dictionary, but the game will only use words of length 5.
