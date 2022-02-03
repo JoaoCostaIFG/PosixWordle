@@ -1,6 +1,15 @@
 #!/bin/sh
 
-max_wcnt="$(grep -c '^\w\w\w\w\w$' dict)"
+if [ -f "./dict" ]; then
+  dictfile="./dict"
+elif [ -f "/usr/share/dict/words" ]; then
+  dictfile="/usr/share/dict/words"
+else
+  echo "No dict file on directory or fallback system dictionary (/usr/share/dict/words) found. Exiting..."
+  exit 1
+fi
+
+max_wcnt="$(grep -c '^\w\w\w\w\w$' "$dictfile")"
 soli="$(shuf -i 0-"$max_wcnt" -n 1)"
 sol="$(grep -m "$soli" '^\w\w\w\w\w$' dict | tail -1 | tr '[:lower:]' '[:upper:]')"
 
