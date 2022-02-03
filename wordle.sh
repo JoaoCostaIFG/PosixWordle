@@ -17,7 +17,7 @@ max_guess=6
 curr_guess=1
 while [ $curr_guess -le $max_guess ]; do
   guess=""
-  while [ "$(printf "%s" "$guess" | wc -c)" -ne 5 ]; do
+  while [ "$(printf "%s" "$guess" | wc -c)" -ne 5 ] || [ "$(printf "%s" "$guess" | grep -c '[^a-zA-Z]')" -gt 0 ]; do
     printf "Your guess [%d/%d]: " "$curr_guess" "$max_guess"
     read -r guess
   done
