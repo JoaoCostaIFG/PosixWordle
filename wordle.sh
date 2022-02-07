@@ -23,13 +23,11 @@ while [ $curr_guess -le $max_guess ]; do
   done
   guess="$(printf "%s" "$guess" | tr '[:lower:]' '[:upper:]')"
 
-  correct=0
   for i in 1 2 3 4 5; do
     sol_char="$(printf "%s" "$sol" | cut "-c${i}")"
     guess_char="$(printf "%s" "$guess" | cut "-c${i}")"
 
     if [ "$sol_char" = "$guess_char" ]; then
-      correct=$((correct + 1))
       printf "\033[30;102m%s\033[0m" "$guess_char"
     elif echo "$sol" | grep -q -F "$guess_char"; then
       printf "\033[30;103m%s\033[0m" "$guess_char"
@@ -39,7 +37,7 @@ while [ $curr_guess -le $max_guess ]; do
   done
   echo
 
-  if [ "$correct" -eq 5 ]; then
+  if [ "$guess" = "$sol" ]; then
     echo "You got it!"
     curr_guess=7
   else

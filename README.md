@@ -13,7 +13,7 @@ I got the one in the repo from
 You can use any dictionary you want (dict file). You can include any words of
 any size in this dictionary, but the game will only use words of length 5.
 
-## Problem
+## Problems
 
 This implementation has the common problem of the "repeated characters":
 
@@ -22,3 +22,5 @@ This implementation has the common problem of the "repeated characters":
 - The last **s** would be green (correct guess in correct place);
 - The first **s** would be yellow (correct guess in wrong place) which isn't
   accurate => there is only 1 **s** in the target word.
+
+It also allows you to guess complete gibberish words.
